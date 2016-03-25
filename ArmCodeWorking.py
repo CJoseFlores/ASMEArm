@@ -7,8 +7,8 @@ GPIO.setwarnings(False)
 
 U = 1
 D = 0
-R = UP
-L = DOWN
+R = U
+L = D
 
 class Motor:
     __ipin = None
