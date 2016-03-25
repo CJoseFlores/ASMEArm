@@ -26,6 +26,19 @@ class Arm:
     def get_dir(self):
         return(self.__direction)
 
+    def movemotor(self, motorID, speed, direction, time):
+        # Checking valid parameters
+        if (motorID < 1 || motorID > 2):
+            return
+        if (direction < 0 || direction > 1):
+            return
+        if (speed < 0 || speed > 10):
+            return
+        if (time < -1 || time > 41):
+            return
+        self.__speed = 105 + speed * 10
+        # moving the motor
+
 Forward = 1
 Backwards = 2
 
