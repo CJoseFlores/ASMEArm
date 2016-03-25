@@ -5,10 +5,10 @@ import time
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
-UP = 1
-DOWN = 0
-RIGHT = UP
-LEFT = DOWN
+U = 1
+D = 0
+R = UP
+L = DOWN
 
 class Motor:
     __ipin = None
@@ -27,7 +27,7 @@ class Motor:
         GPIO.output(ipin, GPIO.HIGH)
         self.__speed = 0
 
-    def movemotor(self, direction):
+    def move(self, direction):
         if (direction == 1):
             GPIO.output(self.__upin, GPIO.HIGH)
             GPIO.output(self.__dpin, GPIO.LOW)
@@ -37,17 +37,18 @@ class Motor:
         else:
             return
 
-    def stopmotor(self):
+    def stop(self):
         GPIO.output(self.__upin, GPIO.LOW)
         GPIO.output(self.__dpin, GPIO.LOW)
         return
 
 #InitPin,UpPin,DownPin
+#time.sleep(timeinseconds) -> Same as arduino Delay(timeinms)
 m1 = Motor(18, 15, 14)
 m2 = Motor(11, 9, 10)
 m3 = Motor(21, 20, 16)
 m4 = Motor(13, 6, 5)
 m5 = Motor(7, 25, 8)
-# left is close 
-# right is open
+# DOWN is close
+# UP is open
 
