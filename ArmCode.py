@@ -5,6 +5,11 @@ import time
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
+UP = 1
+DOWN = 0
+RIGHT = UP
+LEFT = DOWN
+
 motorOneInit = 18
 motorTwoInit = 11
 motorTreeInit = 21
@@ -61,46 +66,23 @@ GPIO.output(motorTreeRight,GPIO.LOW)
 #Right is Down for:
 
 
-class Arm:
-    __motorID = None
+class Motor:
+    __ipin = None
+    __upin = None
+    __dpin = None
     __speed = None
-    __direction = None
+    __index = None
 
-    def __init__(self, motorID, speed, direction):
-        self.__motorID = motorID
-        self.__speed = speed
-        self.__direction = direction
+    def __init__(self, ipin, upin, dpin):
+        self.__ipin = ipin
+        self.__upin = upin
+        self.__dpin = dpin
+        GPIO.setup(ipin, GPIO.OUT)
+        GPIO.setup(upin, GPIO.OUT)
+        GPIO.setup(dpin, GPIO.OUT)
+        self.__speed = 0
 
-    def set_mtrid(self,motorID):
-        self._motorID = motorID
+    def movemotor(self, direction):
+        if (direction == 1):
 
-    def get_mtrid(self):
-        return(self.__motorID)
-
-    def set_speed(self,speed):
-        self.__speed = speed
-
-    def get_speed(self):
-        return(self.__speed)
-
-    def set_dir(self,direction):
-        self.__direction = direction
-
-    def get_dir(self):
-        return(self.__direction)
-
-    def movemotor(self, motorID, speed, direction, time):
-        # Checking valid parameters
-        if (motorID < 1 or motorID > 2):
-            return
-        if (direction < 0 or direction > 1):
-            return
-        if (speed < 0 or speed > 10):
-            return
-        if (time < -1 or time > 41):
-            return
-        self.__speed = 105 + speed * 10
-        # moving the motor
-
-
-
+Motor m1(1,2,3)
