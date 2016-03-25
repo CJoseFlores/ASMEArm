@@ -1,0 +1,39 @@
+UP = 1
+DOWN = 0
+RIGHT = UP
+LEFT = DOWN
+
+class Motor:
+    __ipin = None
+    __upin = None
+    __dpin = None
+    __speed = None
+    __index = None
+
+    def __init__(self, ipin, upin, dpin):
+        self.__ipin = ipin
+        self.__upin = upin
+        self.__dpin = dpin
+        self.__speed = 0
+
+    def movemotor(self, direction):
+        if (direction == 1):
+            print("The motor is moving UP")
+        elif(direction == 0):
+            print("The motor is moving DOWN")
+        else:
+            return
+
+    def stopmotor(self):
+        print("The motor has stopped")
+        return
+
+m1 = Motor(18, 15, 14)
+m2 = Motor(11, 9, 10)
+m3 = Motor(21, 20, 16)
+m4 = Motor(13, 26, 19)
+m5 = Motor(22, 27, 17)
+
+m1.movemotor(UP)
+m1.movemotor(DOWN)
+m1.stopmotor()
