@@ -30,8 +30,10 @@ class Motor:
     def movemotor(self, direction):
         if (direction == 1):
             GPIO.output(self.__upin, GPIO.HIGH)
+            GPIO.output(self.__dpin, GPIO.LOW)
         elif(direction == 0):
             GPIO.output(self.__dpin, GPIO.HIGH)
+            GPIO.output(self.__upin, GPIO.LOW)
         else:
             return
 
