@@ -43,19 +43,21 @@ class Arm:
     #Note that Arm() can only take in Motor Objects as parameters
     def __init__(self, m1, m2, m3, m4, m5):
 
-        self.__m[0] = m1
-        self.__m[1] = m2
-        self.__m[2] = m3
-        self.__m[3] = m4
-        self.__m[4] = m5
+        self.__m1 = m1
+        self.__m2 = m2
+        self.__m3 = m3
+        self.__m4 = m4
+        self.__m5 = m5
         return
     #The Below function moves motors that move in the same direction, i.e. m2-m4
     def movemost(self, direction):
-        for i in range(1,4):
-            self.__m[i].move(direction)
+        self.__m2.move(direction)
+        self.__m3.move(direction)
+        self.__m4.move(direction)
         return
 
-    def stopmost(self, direction):
-        for i in range(1,4):
-            self.__m[i].stop()
+    def stopmost(self):
+        self.__m2.stop()
+        self.__m3.stop()
+        self.__m4.stop()
         return
