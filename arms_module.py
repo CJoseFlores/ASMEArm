@@ -39,7 +39,11 @@ class Motor:
         return
 
 class Arm:
-    __m = [None]*5
+    __m1= None
+    __m2 = None
+    __m3 = None
+    __m4 = None
+    __m5 = None
     #Note that Arm() can only take in Motor Objects as parameters
     def __init__(self, m1, m2, m3, m4, m5):
 
