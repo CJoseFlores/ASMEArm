@@ -22,7 +22,6 @@ m5 = Motor(7, 25, 8)
 # DOWN is close
 # UP is open
 arm1 = Arm(m1, m2, m3, m4, m5)
-
-arm1.movepiv(U)
-time.sleep(.5)
-arm1.stoparm()
+#Methods inside Arm will not work in this version
+#move(direction, time in seconds)
+m1.move(U,1.1)

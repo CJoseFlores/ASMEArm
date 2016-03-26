@@ -23,13 +23,17 @@ class Motor:
         self.__speed = 0
         return
 
-    def move(self, direction):
+    def move(self, direction, t):
         if (direction == 1):
             GPIO.output(self.__upin, GPIO.HIGH)
             GPIO.output(self.__dpin, GPIO.LOW)
+            time.sleep(t)
+            self.stop()
         elif(direction == 0):
             GPIO.output(self.__dpin, GPIO.HIGH)
             GPIO.output(self.__upin, GPIO.LOW)
+            time.sleep(t)
+            self.stop()
         else:
             return
 
