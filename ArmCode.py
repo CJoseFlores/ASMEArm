@@ -23,3 +23,6 @@ m5 = Motor(7, 25, 8)
 # UP is open
 arm1 = Arm(m1, m2, m3, m4, m5)
 
+arm1.movepiv(U)
+time.sleep(.5)
+arm1.stoparm()

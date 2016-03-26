@@ -54,14 +54,15 @@ class Arm:
         self.__m5 = m5
         return
     #The Below function moves motors that move in the same direction, i.e. m2-m4
-    def movemost(self, direction):
+    def movepiv(self, direction):
         self.__m2.move(direction)
         self.__m3.move(direction)
-        self.__m4.move(direction)
         return
 
-    def stopmost(self):
+    def stoparm(self):
+        self.__m1.stop()
         self.__m2.stop()
         self.__m3.stop()
         self.__m4.stop()
+        self.__m5.stop()
         return
