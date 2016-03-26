@@ -2,6 +2,7 @@
 import RPi.GPIO as GPIO
 import time
 from arms_module import Motor
+from arms_module import Arm
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
