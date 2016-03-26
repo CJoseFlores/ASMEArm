@@ -57,6 +57,8 @@ class Arm:
     __m3 = None
     __m4 = None
     __m5 = None
+    __snsr = [None]*2
+    __dsnsr = [23,25,26]
     #Note that Arm() can only take in Motor Objects as parameters
     def __init__(self, m1, m2, m3, m4, m5):
 
@@ -66,11 +68,29 @@ class Arm:
         self.__m4 = m4
         self.__m5 = m5
         return
-    #The Below function moves motors that move in the same direction, i.e. m2-m4
+
+
+    #This function simply moves m2 & m3
     def movepiv(self, direction):
         self.__m2.move(direction)
         self.__m3.move(direction)
         return
+
+    #Function Below Needs Lots of Work
+    def readsensors(self):
+        return
+
+    #This function needs work
+    #It will set the robot arm to a default state.
+    def dconfig(self):
+        self.stoparm()
+        mainflag = 1
+        flag = [1,1,1,1,1,1]
+        while(mainflag == 1):
+            return
+        return
+
+
 
     def stoparm(self):
         self.__m1.stop()
