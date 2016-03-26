@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 import RPi.GPIO as GPIO
 import time
-import arms_module
+from arms_module import Motor
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
