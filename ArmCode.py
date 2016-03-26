@@ -22,6 +22,5 @@ m5 = Motor(7, 25, 8)
 # DOWN is close
 # UP is open
 arm1 = Arm(m1, m2, m3, m4, m5)
-#Methods inside Arm will not work in this version
-#move(direction, time in seconds)
-m1.move(U,1.1)
+#tmove(direction, time in seconds)
+m1.tmove(U,1.1)
