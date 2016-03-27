@@ -108,7 +108,7 @@ class Arm:
     __m3 = None
     __m4 = None
     __m5 = None
-    __snsr = [None]*2
+    __snsr = [None]*3
     __dsnsr = [23,25,26]
     #Note that Arm() can only take in Motor Objects as parameters
     def __init__(self, m1, m2, m3, m4, m5):
@@ -125,6 +125,7 @@ class Arm:
         self.__snsr[1] = s2
         GPIO.setup(self.__snsr[0], GPIO.IN)
         GPIO.setup(self.__snsr[1], GPIO.IN)
+        GPIO.setup(self.__snsr[2], GPIO.IN)
         return
 
     #This function simply moves m2 & m3
