@@ -59,25 +59,28 @@ class UltraSonicSensor:
     __stop = None
     __elapsed = None
     __distance = None
-    __GPIO_TRIGGER = None
-    __GPIO_ECHO = None
+    __GPIO_T = None
+    __GPIO_E = None
 
     def __init__(self, ep, tp):
-        self.__GPIO_ECHO = ep
-        self.__GPIO_TRIGGER = tp
+        self.__GPIO_E = ep
+        self.__GPIO_T = tp
+        GPIO.setup(self.__GPIO_T, GPIO.OUT)
+        GPIO.setup(self.__GPIO_E, GPIO.IN)
+        GPIO.output(self.__GPIO_T, False)
         return
 
     def measure(self):
         # This function measures a distance
-        GPIO.output(GPIO_TRIGGER, True)
+        GPIO.output(self.__GPIO_T, True)
         time.sleep(0.00001)
-        GPIO.output(GPIO_TRIGGER, False)
+        GPIO.output(self.__GPIO_T, False)
         self.__start = time.time()
 
-        while GPIO.input(GPIO_ECHO) == 0:
+        while GPIO.input(self.__GPIO_E) == 0:
             self.__start = time.time()
 
-        while GPIO.input(GPIO_ECHO) == 1:
+        while GPIO.input(self.__GPIO_E) == 1:
             self.__stop = time.time()
 
         self.__elapsed = self.__stop - self.__start
@@ -97,7 +100,7 @@ class UltraSonicSensor:
         distance3 = self.__distance
         self.__distance = distance1 + distance2 + distance3
         self.__distance = distance / 3
-        return
+        return self.__distance
 ###################################################################################
 class Arm:
     __m1= None

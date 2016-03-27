@@ -3,6 +3,7 @@ import RPi.GPIO as GPIO
 import time
 from arms_module import Motor
 from arms_module import Arm
+from arms_module import UltraSonicSensor
 
 GPIO.setmode(GPIO.BCM)#Sets the ping Numbering System
 GPIO.cleanup() #Defaults pins to input, used to not power-up with code
