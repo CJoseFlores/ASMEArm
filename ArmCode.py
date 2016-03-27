@@ -4,7 +4,8 @@ import time
 from arms_module import Motor
 from arms_module import Arm
 
-GPIO.setmode(GPIO.BCM)
+GPIO.setmode(GPIO.BCM)#Sets the ping Numbering System
+GPIO.cleanup() #Defaults pins to input, used to not power-up with code
 GPIO.setwarnings(False)
 
 U = 1
