@@ -130,24 +130,28 @@ class Arm:
         GPIO.setup(self.__snsr[2], GPIO.IN)
         return
 
-    #This function simply moves m2 & m3
-    def movepiv(self, direction):
-        self.__m2.move(direction)
-        self.__m3.move(direction)
-        return
-
     #Function Below Needs Lots of Work
     def readsensors(self):
         return
 
-    #This function needs work
-    #It will set the robot arm to a default state.
+    #This function will set the robot arm to the default state.
+    #The first if statement refers to the sensor connected to channel 1 of the mcp3008
+    #The second if statement refers to the sensor connected to channel 2 of the mcp 3008
     def dconfig(self):
         self.stoparm()
-        mainflag = 1
-        flag = [1,1,1,1,1,1]
-        while(mainflag == 1):
-            return
+        stopflag = [0,0]
+        while(stopflag[0] == 0 and stopflag[1] == 0):
+            if(irdist.get_distance(1)>123123): #12123 will be replaced with a distance reading, reading from channel 1
+                self.__m2.move(1)#moves up
+            else:
+                self.__m2.stop()
+                stopflag[0] = 1
+            if(irdist.get_distance(2)>123123): #Sensor Connected to Channel 2
+                self.__m3.move(0)#moves down
+            else:
+                self.__m3.stop()
+                stopflag[1] = 1
+        self.stoparm()
         return
 
     def stoparm(self):
