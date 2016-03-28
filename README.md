@@ -6,25 +6,25 @@
 
 1. Move the arm in sync using:
 
-	* Arm objects
+* Arm objects
 	
-	* Sensors
+* Sensors
 	
 2. Create a "Default Position" 
 
 ![alt tag](http://i.imgur.com/JYRuONC.jpg)
 
-	* This position will be used to calibrate the arm.
+* This position will be used to calibrate the arm.
 	
-	* S1 and S2 will be used to tell the arm when to start/stop moving to return/exit the default position.
+* S1 and S2 will be used to tell the arm when to start/stop moving to return/exit the default position.
 	
-	* X and Y are distances that will be used to perform the above statement.
+* X and Y are distances that will be used to perform the above statement.
 	  
-	* The arm will return to the "Default Position" when powered on, and after picking up or dropping off the payload.
+* The arm will return to the "Default Position" when powered on, and after picking up or dropping off the payload.
 
 3. After the rover finds the object with the Object-Tracking camera, the arm will turn and pickup the payload, and return to the default position.
 
-	* Once it sees the payload, it will move motors 2 & 3 to get the arm close, and finally motor 5 to grab/release it, as depicted below:
+* Once it sees the payload, it will move motors 2 & 3 to get the arm close, and finally motor 5 to grab/release it, as depicted below:
 	
 	![alt tag](http://i.imgur.com/y6iTx2m.jpg)
 
