@@ -114,14 +114,13 @@ class Arm:
     __dsnsr = [23,25,26]
     #Note that Arm() can only take in Motor Objects as parameters
     def __init__(self, m1, m2, m3, m4, m5):
-
         self.__m1 = m1
         self.__m2 = m2
         self.__m3 = m3
         self.__m4 = m4
         self.__m5 = m5
         return
-    #Assign Sensor Pins
+    #Assign UltrasonicSensor Pins
     def setsensors(self, s1, s2, s3):
         self.__snsr[0] = s1
         self.__snsr[1] = s2
@@ -150,8 +149,6 @@ class Arm:
         while(mainflag == 1):
             return
         return
-
-
 
     def stoparm(self):
         self.__m1.stop()
