@@ -16,6 +16,8 @@
 
 [defaultpos]: http://i.imgur.com/JYRuONC.jpg
 
+----
+
 
   * This position will be used to calibrate the arm.
 	
