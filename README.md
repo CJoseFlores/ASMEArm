@@ -26,8 +26,6 @@
 
 [defaultpos]: http://i.imgur.com/JYRuONC.jpg
 
-----
-
 3. After the rover finds the object with the Object-Tracking camera, the arm will turn and pickup the payload, and return to the default position.
 
   * Once it sees the payload, it will move motors 2 & 3 to get the arm close, and finally motor 5 to grab/release it, as depicted below:
