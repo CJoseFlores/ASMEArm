@@ -12,6 +12,14 @@
 	
 2. Create a "Default Position" 
 
+  * This position will be used to calibrate the arm.
+	
+  * S1 and S2 will be used to tell the arm when to start/stop moving to return/exit the default position.
+	
+  * X and Y are distances that will be used to perform the above statement.
+	  
+  * The arm will return to the "Default Position" when powered on, and after picking up or dropping off the payload.
+
 ![alt tag][defaultpos]
 
 [defaultpos]: http://i.imgur.com/JYRuONC.jpg
