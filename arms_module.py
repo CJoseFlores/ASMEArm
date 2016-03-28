@@ -1,6 +1,8 @@
 #! /usr/bin/env python
 import RPi.GPIO as GPIO
 import time
+import mcp3008
+import irdist
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
@@ -120,9 +122,10 @@ class Arm:
         self.__m5 = m5
         return
     #Assign Sensor Pins
-    def setsensors(self, s1, s2):
+    def setsensors(self, s1, s2, s3):
         self.__snsr[0] = s1
         self.__snsr[1] = s2
+        self.__snsr[2] = s3
         GPIO.setup(self.__snsr[0], GPIO.IN)
         GPIO.setup(self.__snsr[1], GPIO.IN)
         GPIO.setup(self.__snsr[2], GPIO.IN)

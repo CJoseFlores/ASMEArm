@@ -1,6 +1,8 @@
 #! /usr/bin/env python
 import RPi.GPIO as GPIO
 import time
+import mcp3008
+import irdist
 from arms_module import Motor
 from arms_module import Arm
 from arms_module import UltraSonicSensor
