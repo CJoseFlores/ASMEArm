@@ -77,7 +77,6 @@ class UltraSonicSensor:
         GPIO.output(self.__GPIO_T, True)
         time.sleep(0.00001)
         GPIO.output(self.__GPIO_T, False)
-        self.__start = time.time()
 
         while GPIO.input(self.__GPIO_E) == 0:
             self.__start = time.time()
@@ -85,8 +84,9 @@ class UltraSonicSensor:
         while GPIO.input(self.__GPIO_E) == 1:
             self.__stop = time.time()
 
-        self.__elapsed = self.__stop - self.__start
-        self.__distance = (self.__elapsed * 34300) / 2
+        self.__elapsed = (self.__stop) - (self.__start)
+        self.__distance = (self.__elapsed * 17150)
+        self.__distance = round(self.__distance, 2)
 
         return self.__distance
 
