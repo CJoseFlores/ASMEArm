@@ -164,10 +164,10 @@ class Arm:
         while(stopflag == 0):
             if(irdist.get_distance(1)>123123): #ch1 sensor is ontop of m2. If the sensor doesn't detect the arm part, the following if statements
                 if(irdist.get_distance(2)<123123):
-                    self.__m2.move(0) #m2 begins to move down if the sensor is too low to the ground.
+                    self.__m2.move(1) #m2 begins to move up if the sensor is too low to the ground.
                     self.__m3.stop()
                 elif(irdist.get_distance(2)>123123):
-                    self.__m3.move(1) #m3 begins to move up if the sensor is too high from the ground.
+                    self.__m3.move(0) #m3 begins to move down if the sensor is too high from the ground.
                     self.__m2.stop()
             else:
                 self.__stoparm() #stops all arm movement/operation. The arm should now be in default position.
@@ -194,10 +194,10 @@ class Arm:
         while (stopflag == 0):
             if (irdist.get_distance(3) < 123123):#ch3 sensor is the sensor on top of the rover.
                 if (irdist.get_distance(2) < 123123):
-                        self.__m2.move(1)  # m2 begins to move up if the sensor is too low to the ground.
+                        self.__m2.move(0)  # m2 begins to move down if the sensor is too high to the ground.
                         self.__m3.stop()
                 elif (irdist.get_distance(2) > 123123):
-                        self.__m3.move(0)  # m3 begins to move down if the sensor is too high from the ground.
+                        self.__m3.move(1)  # m3 begins to move up if the sensor is too low from the ground.
                         self.__m2.stop()
             else:
                 self.__stoparm()
