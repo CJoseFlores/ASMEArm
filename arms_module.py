@@ -140,7 +140,7 @@ class Arm:
     def defaultconfig(self):
         self.stoparm()
         stopflag = [0,0]
-        while(stopflag[0] == 0 and stopflag[1] == 0):
+        while(stopflag[0] == 0 or stopflag[1] == 0):
             if(irdist.get_distance(1)>123123): #12123 will be replaced with a certain distance reading, reading from channel 1
                 self.__m2.move(1)#moves up
             else:
