@@ -3,6 +3,7 @@ import RPi.GPIO as GPIO
 import time
 import mcp3008
 import irdist
+import os
 from arms_module import Motor
 from arms_module import Arm
 from arms_module import UltraSonicSensor
@@ -27,4 +28,11 @@ m5 = Motor(7, 25, 8)
 # UP is open
 arm1 = Arm(m1, m2, m3, m4, m5)
 #tmove(direction, time in seconds)
-m1.tmove(U,1.1)
+#m1.tmove(U,1.1)
+
+sensor1 = UltraSonicSensor(23, 24)
+
+print ("sensor1.measure")
+
+
+

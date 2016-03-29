@@ -87,7 +87,8 @@ class UltraSonicSensor:
 
         self.__elapsed = self.__stop - self.__start
         self.__distance = (self.__elapsed * 34300) / 2
-        return
+
+        return self.__distance
 
     def measure_average(self):
         # This function takes 3 measurements and
