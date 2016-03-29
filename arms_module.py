@@ -137,11 +137,11 @@ class Arm:
     #This function will set the robot arm to the default state.
     #The first if statement refers to the sensor connected to channel 1 of the mcp3008
     #The second if statement refers to the sensor connected to channel 2 of the mcp 3008
-    def dconfig(self):
+    def defaultconfig(self):
         self.stoparm()
         stopflag = [0,0]
         while(stopflag[0] == 0 and stopflag[1] == 0):
-            if(irdist.get_distance(1)>123123): #12123 will be replaced with a distance reading, reading from channel 1
+            if(irdist.get_distance(1)>123123): #12123 will be replaced with a certain distance reading, reading from channel 1
                 self.__m2.move(1)#moves up
             else:
                 self.__m2.stop()
@@ -151,7 +151,24 @@ class Arm:
             else:
                 self.__m3.stop()
                 stopflag[1] = 1
+        return
+    #This function will lunge into position to grab or drop the payload
+    def lunge(self):
         self.stoparm()
+        stopflag = 0
+        while(stopflag == 0):
+            if(irdist.get_distance(2)<123123):
+                self.__m2.move(0)#moves down
+                self.__m3.move(1)#moves up
+            else:
+                self.stoparm()
+                stopflag = 1
+        return
+
+    #This function grabs or releases the payload. "action" means either grab or release
+    def claw(self, action):
+        self.stoparm()
+        self.__m5.tmove(action,1.2)#Moves for 1.2 seconds
         return
 
     def stoparm(self):
