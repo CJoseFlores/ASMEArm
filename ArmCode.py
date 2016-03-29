@@ -32,7 +32,7 @@ arm1 = Arm(m1, m2, m3, m4, m5)
 
 sensor1 = UltraSonicSensor(23, 24)
 
-print ("sensor1.measure")
+print (sensor1.measure())
 
 
 
