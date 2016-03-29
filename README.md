@@ -33,6 +33,9 @@
 	![alt tag](http://i.imgur.com/y6iTx2m.jpg)
 
 * Once next to the drop-off area, the arm will drop the payload, and return to the default position.
+
+------
+Note: The methods above are Method 1, Method 2 is yet to be posted on README, but is currently being coded as defaultconfig2 and lunge2.
 	
 ### Materials needed for this branch:
 
