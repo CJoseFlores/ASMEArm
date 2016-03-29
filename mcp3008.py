@@ -3,7 +3,9 @@
 import spidev
 
 spi = spidev.SpiDev()
-spi.open(0,0)
+#spi.open(0,0)
+#^ For some reason this function is not working. Perhaps something is missing from
+#The SPI packages
 
 # read SPI data from MCP3008 chip, 8 possible adc's (0 thru 7)
 def readadc(adcnum):

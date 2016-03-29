@@ -56,6 +56,7 @@ class Motor:
 ####################################################################################
 # The Sensor class takes modified code from Matt Hawkin's Ultrasonic_2.py located at:
 # http://www.raspberrypi-spy.co.uk/2013/01/ultrasonic-distance-measurement-using-python-part-2/
+#This class is working well, but this kind of sensor will not suit our purposes
 class UltraSonicSensor:
     __start = None
     __stop = None
@@ -135,26 +136,47 @@ class Arm:
     def readsensors(self):
         return
 
+    #This dconfig is based from the original plan.
     #This function will set the robot arm to the default state.
     #The first if statement refers to the sensor connected to channel 1 of the mcp3008
     #The second if statement refers to the sensor connected to channel 2 of the mcp 3008
-    def defaultconfig(self):
+    def defaultconfig1(self):
         self.stoparm()
         stopflag = [0,0]
         while(stopflag[0] == 0 or stopflag[1] == 0):
-            if(irdist.get_distance(1)>123123): #12123 will be replaced with a certain distance reading, reading from channel 1
+            if(irdist.get_distance(1)>123123): #12123 will be replaced with a certain distance reading, reading from channel 1. Ch1 sensor on top of m1
                 self.__m2.move(1)#moves up
             else:
                 self.__m2.stop()
                 stopflag[0] = 1
-            if(irdist.get_distance(2)>123123): #Sensor Connected to Channel 2
+            if(irdist.get_distance(2)>123123): #Sensor Connected to Channel 2, next to the baseplate
                 self.__m3.move(0)#moves down
             else:
                 self.__m3.stop()
                 stopflag[1] = 1
         return
+    #This is from the second plan, where we have 1 sensor on the bottom, 1 on top of m5, and then
+    #1 one possibly on top of m1
+
+    def defaultconfig2(self):
+        self.stoparm()
+        stopflag = 0
+        while(stopflag == 0):
+            if(irdist.get_distance(1)>123123): #ch1 sensor is ontop of m2. If the sensor doesn't detect the arm part, the following if statements
+                if(irdist.get_distance(2)<123123):
+                    self.__m2.move(0) #m2 begins to move down if the sensor is too low to the ground.
+                    self.__m3.stop()
+                elif(irdist.get_distance(2)>123123):
+                    self.__m3.move(1) #m3 begins to move up if the sensor is too high from the ground.
+                    self.__m2.stop()
+            else:
+                self.__stoparm() #stops all arm movement/operation. The arm should now be in default position.
+            stopflag = 1
+        return
+
+    #The code below is the original plan.
     #This function will lunge into position to grab or drop the payload
-    def lunge(self):
+    def lunge1(self):
         self.stoparm()
         stopflag = 0
         while(stopflag == 0):
@@ -163,6 +185,22 @@ class Arm:
                 self.__m3.move(1)#moves up
             else:
                 self.stoparm()
+                stopflag = 1
+        return
+
+    def lunge2(self):
+        self.stoparm()
+        stopflag = 0
+        while (stopflag == 0):
+            if (irdist.get_distance(3) < 123123):#ch3 sensor is the sensor on top of the rover.
+                if (irdist.get_distance(2) < 123123):
+                        self.__m2.move(1)  # m2 begins to move up if the sensor is too low to the ground.
+                        self.__m3.stop()
+                elif (irdist.get_distance(2) > 123123):
+                        self.__m3.move(0)  # m3 begins to move down if the sensor is too high from the ground.
+                        self.__m2.stop()
+            else:
+                self.__stoparm()
                 stopflag = 1
         return
 
