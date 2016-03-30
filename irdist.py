@@ -28,7 +28,7 @@ def get_distance(mcp3008_ch):
     num_samples = 10
     r = []
     for i in range (0,num_samples):
-        r.append(mcp3008.readadc(mcp3008_ch))
+        r.append(mcp3008.readadc(mcp3008_ch, SPICLK, SPIMOSI, SPIMISO, SPICS))
     a = sum(r)/float(num_samples)
     v = (a/1023.0)*3.3
     d = 16.2537 * v**4 - 129.893 * v**3 + 382.268 * v**2 - 512.611 * v + 306.439
