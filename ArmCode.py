@@ -32,5 +32,11 @@ arm1 = Arm(m1, m2, m3, m4, sensor2)
 
 #print("Sensor 1's Distance: ", irdist.get_distance(0))
 #print("Sensor 2's Distance: ", sensor2.measure())
+#print("Sensor 3's Distance: ", irdist.get_distance(2))
 
-
+#arm1.defaultconfig2()
+#arm1.lunge2()
+#arm1.claw(D)
+#arm1.defaultconfig2()
+#arm1.lunge2()
+#arm1.claw(U)
