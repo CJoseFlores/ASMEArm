@@ -106,27 +106,14 @@ class Arm:
     __m2 = None
     __m3 = None
     __m4 = None
-    __snsr = [None]*3
-    __dsnsr = [23,25,26]
+    __snsr = None
     #Note that Arm() can only take in Motor Objects as parameters
-    def __init__(self, m1, m2, m3, m4):
+    def __init__(self, m1, m2, m3, m4, snsr):
         self.__m1 = m1
         self.__m2 = m2
         self.__m3 = m3
         self.__m4 = m4
-        return
-    #Assign UltrasonicSensor Pins
-    def setsensors(self, s1, s2, s3):
-        self.__snsr[0] = s1
-        self.__snsr[1] = s2
-        self.__snsr[2] = s3
-        GPIO.setup(self.__snsr[0], GPIO.IN)
-        GPIO.setup(self.__snsr[1], GPIO.IN)
-        GPIO.setup(self.__snsr[2], GPIO.IN)
-        return
-
-    #Function Below Needs Lots of Work
-    def readsensors(self):
+        self.__snsr = snsr
         return
 
     #This dconfig is based from the original plan.
@@ -155,12 +142,12 @@ class Arm:
         self.stoparm()
         stopflag = 0
         while(stopflag == 0):
-            if(irdist.get_distance(1)>123123): #ch1 sensor is ontop of m2. If the sensor doesn't detect the arm part, the following if statements
-                if(irdist.get_distance(2)<123123):
-                    self.__m1.move(1) #m2 begins to move up if the sensor is too low to the ground.
+            if(irdist.get_distance(1)>5): #ch1 sensor is ontop of m1. If the sensor doesn't detect the arm part, the following if statements
+                if(self.__snsr.measure()<123123):
+                    self.__m1.move(1) #m1 begins to move up if the sensor is too low to the ground.
                     self.__m2.stop()
-                elif(irdist.get_distance(2)>123123):
-                    self.__m2.move(0) #m3 begins to move down if the sensor is too high from the ground.
+                elif(self.__snsr.measure()>123123):
+                    self.__m2.move(0) #m2 begins to move down if the sensor is too high from the ground.
                     self.__m1.stop()
             else:
                 self.__stoparm() #stops all arm movement/operation. The arm should now be in default position.
@@ -186,10 +173,10 @@ class Arm:
         stopflag = 0
         while (stopflag == 0):
             if (irdist.get_distance(3) < 123123):#ch3 sensor is the sensor on top of the rover.
-                if (irdist.get_distance(2) < 123123):
+                if (self.__snsr.measure() < 123123):
                         self.__m1.move(0)  # m2 begins to move down if the sensor is too high to the ground.
                         self.__m2.stop()
-                elif (irdist.get_distance(2) > 123123):
+                elif (self.__snsr.measure() > 123123):
                         self.__m2.move(1)  # m3 begins to move up if the sensor is too low from the ground.
                         self.__m1.stop()
             else:

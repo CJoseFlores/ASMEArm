@@ -24,14 +24,13 @@ m3 = Motor(16,12)
 m4 = Motor(26,19)
 # DOWN is close
 # UP is open
-arm1 = Arm(m1, m2, m3, m4)
+
+sensor2 = UltraSonicSensor(23, 24)#Change this pins, they are elsewhere in the actual one.
+arm1 = Arm(m1, m2, m3, m4, sensor2)
 #tmove(direction, time in seconds)
 #m1.tmove(U,1.1)
 
-#sensor1 = UltraSonicSensor(23, 24)
-
-#print (sensor1.measure())
 #print("Sensor 1's Distance: ", irdist.get_distance(0))
-#print("Sensor 2's Distance: ", irdist.get_distance(1))
+#print("Sensor 2's Distance: ", sensor2.measure())
 
 

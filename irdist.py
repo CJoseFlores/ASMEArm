@@ -48,7 +48,6 @@ def get_distance2(mcp3008_ch):
         sensorRet = 1
 
     sensorRet = 3200 / sensorRet-3
-    distance = sensorRet
 
     return int(sensorRet)
 
