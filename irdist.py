@@ -34,6 +34,24 @@ def get_distance(mcp3008_ch):
     d = 16.2537 * v**4 - 129.893 * v**3 + 382.268 * v**2 - 512.611 * v + 306.439
     return int(round(d))
 
+def get_distance2(mcp3008_ch):
+    num_samples = 10
+    r = []
+    for i in range (0,num_samples):
+        r.append(mcp3008.readadc(mcp3008_ch, SPICLK, SPIMOSI, SPIMISO, SPICS))
+    a = sum(r)/float(num_samples)
+
+    sensorRet = mcp3008.readadc(mcp3008_ch, SPICLK, SPIMOSI, SPIMISO, SPICS)
+
+    sensorRet = sensorRet * 500 / 1023
+    if(sensorRet == 0):
+        sensorRet = 1
+
+    sensorRet = 3200 / sensorRet - 3
+    distance = sensorRet
+
+    return int(round(sensorRet))
+
 #This method involves using mcp3008 with the SPI drivers.
 #No GPIO are used, and all sensors are connected to
 #mcp3008 channels 0-7

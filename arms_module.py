@@ -8,7 +8,6 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
 class Motor:
-    __ipin = None
     __upin = None
     __dpin = None
     __speed = None
