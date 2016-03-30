@@ -111,16 +111,14 @@ class Arm:
     __m2 = None
     __m3 = None
     __m4 = None
-    __m5 = None
     __snsr = [None]*3
     __dsnsr = [23,25,26]
     #Note that Arm() can only take in Motor Objects as parameters
-    def __init__(self, m1, m2, m3, m4, m5):
+    def __init__(self, m1, m2, m3, m4):
         self.__m1 = m1
         self.__m2 = m2
         self.__m3 = m3
         self.__m4 = m4
-        self.__m5 = m5
         return
     #Assign UltrasonicSensor Pins
     def setsensors(self, s1, s2, s3):
@@ -207,7 +205,7 @@ class Arm:
     #This function grabs or releases the payload. "action" means either grab or release
     def claw(self, action):
         self.stoparm()
-        self.__m5.tmove(action,1.2)#Moves for 1.2 seconds
+        self.__m4.tmove(action,1.2)#Moves for 1.2 seconds
         return
 
     def stoparm(self):
@@ -215,5 +213,4 @@ class Arm:
         self.__m2.stop()
         self.__m3.stop()
         self.__m4.stop()
-        self.__m5.stop()
         return
