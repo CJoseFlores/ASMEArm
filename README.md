@@ -37,6 +37,9 @@
 ------
 Note: The methods above are Method 1, Method 2 is yet to be posted on README, but is currently being coded as defaultconfig2 and lunge2.
 	
+### Objective Progress:
+
+* Sensors are currently functional, but they give off strange distance readings. Currently working off those readings and will begin testing the arm movement in conjunction to it.
 ### Materials needed for this branch:
 
   * [SHARP IR distance sensor](https://www.adafruit.com/products/164)
@@ -46,5 +49,17 @@ Note: The methods above are Method 1, Method 2 is yet to be posted on README, bu
 
   * [HC-SR04 Ultrasonic Sensor](http://www.amazon.com/SunFounder-Ultrasonic-Distance-Mega2560-Duemilanove/dp/B00E0NXTJW/ref=sr_1_1?ie=UTF8&qid=1459173388&sr=8-1&keywords=distance+sensor)
 	These sensors would be best, but they do not work well on round surfaces. Testing is needed.
+	
+### Other Information/Datasheets:
+
+------
+* Rasberry pi 2 model B pinouts:
+![alt tag](http://www.jameco.com/Jameco/workshop/circuitnotes/raspberry_pi_circuit_note_fig2a.jpg)
+------
+* H-Bridge Pinouts:
+![alt tag](http://api.ning.com/files/2JurkTHbQdyEJc0Us*C9I5BgklPg596Okj8IKIsIa8WQR3T3KTnIIyLYDn9llE4Hao3cvc2vNy2S8ytKUmseZB*S5uMsuuwT/l293dpin.jpeg)
+------
+* MCP3008 Pinouts:
+![alt tag](http://i.imgur.com/5t3wZug.png)
 
 	
