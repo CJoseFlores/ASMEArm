@@ -30,9 +30,9 @@ arm1 = Arm(m1, m2, m3, m4, m5)
 #tmove(direction, time in seconds)
 #m1.tmove(U,1.1)
 
-sensor1 = UltraSonicSensor(23, 24)
+#sensor1 = UltraSonicSensor(23, 24)
 
-print (sensor1.measure())
-
+#print (sensor1.measure())
+print(irdist.get_distance(0))
 
 
