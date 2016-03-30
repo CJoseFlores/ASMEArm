@@ -31,11 +31,11 @@ def readadc(adcnum, clockpin, mosipin, misopin, cspin):
     adcout = 0
 # read in one empty bit, one null bit and 10 ADC bits
     for i in range(12):
-    GPIO.output(clockpin, True)
-    GPIO.output(clockpin, False)
-    adcout <<= 1
-    if (GPIO.input(misopin)):
-        adcout |= 0x1
+        GPIO.output(clockpin, True)
+        GPIO.output(clockpin, False)
+        adcout <<= 1
+        if (GPIO.input(misopin)):
+            adcout |= 0x1
 
     GPIO.output(cspin, True)
 
