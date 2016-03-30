@@ -20,10 +20,10 @@ L = D
 #InitPin,UpPin,DownPin
 #time.sleep(timeinseconds) -> Same as arduino Delay(timeinms)
 m1 = Motor(18, 15, 14)
-m2 = Motor(11, 9, 10)
+m2 = Motor(22, 27, 17) #changed from 11 to 22, and 9 to 27, and 10 to 17
 m3 = Motor(21, 20, 16)
 m4 = Motor(13, 6, 5)
-m5 = Motor(7, 25, 8)
+m5 = Motor(7, 25, 24) #changed from 8 to 24
 # DOWN is close
 # UP is open
 arm1 = Arm(m1, m2, m3, m4, m5)
