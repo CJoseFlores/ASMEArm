@@ -18,10 +18,10 @@ L = D
 
 #InitPin,UpPin,DownPin
 #time.sleep(timeinseconds) -> Same as arduino Delay(timeinms)
-m1 = Motor(23, 6, 5) # changed from 18 to s3
-m2 = Motor(22, 27, 17) #changed from 11 to 22, and 9 to 27, and 10 to 17
-m3 = Motor(21, 20, 16)
-m4 = Motor(7, 25, 24) #changed from 8 to 24
+m1 = Motor(21,20)
+m2 = Motor(13,6)
+m3 = Motor(16,12)
+m4 = Motor(26,19)
 # DOWN is close
 # UP is open
 arm1 = Arm(m1, m2, m3, m4)
@@ -31,7 +31,7 @@ arm1 = Arm(m1, m2, m3, m4)
 #sensor1 = UltraSonicSensor(23, 24)
 
 #print (sensor1.measure())
-print("Sensor 1's Distance: ", irdist.get_distance(0))
-print("Sensor 2's Distance: ", irdist.get_distance(1))
+#print("Sensor 1's Distance: ", irdist.get_distance(0))
+#print("Sensor 2's Distance: ", irdist.get_distance(1))
 
 

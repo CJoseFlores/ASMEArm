@@ -14,15 +14,11 @@ class Motor:
     __speed = None
     __index = None
 
-    def __init__(self, ipin, upin, dpin):
-        self.__ipin = ipin
+    def __init__(self, upin, dpin):
         self.__upin = upin
         self.__dpin = dpin
-        GPIO.setup(ipin, GPIO.OUT)
         GPIO.setup(upin, GPIO.OUT)
         GPIO.setup(dpin, GPIO.OUT)
-        GPIO.output(ipin, GPIO.HIGH)
-        self.__speed = 0
         return
 
     def tmove(self, direction, t):
@@ -143,14 +139,14 @@ class Arm:
         stopflag = [0,0]
         while(stopflag[0] == 0 or stopflag[1] == 0):
             if(irdist.get_distance(1)>123123): #12123 will be replaced with a certain distance reading, reading from channel 1. Ch1 sensor on top of m1
-                self.__m2.move(1)#moves up
+                self.__m1.move(1)#moves up
             else:
-                self.__m2.stop()
+                self.__m1.stop()
                 stopflag[0] = 1
             if(irdist.get_distance(2)>123123): #Sensor Connected to Channel 2, next to the baseplate
-                self.__m3.move(0)#moves down
+                self.__m2.move(0)#moves down
             else:
-                self.__m3.stop()
+                self.__m2.stop()
                 stopflag[1] = 1
         return
     #This is from the second plan, where we have 1 sensor on the bottom, 1 on top of m5, and then
@@ -162,11 +158,11 @@ class Arm:
         while(stopflag == 0):
             if(irdist.get_distance(1)>123123): #ch1 sensor is ontop of m2. If the sensor doesn't detect the arm part, the following if statements
                 if(irdist.get_distance(2)<123123):
-                    self.__m2.move(1) #m2 begins to move up if the sensor is too low to the ground.
-                    self.__m3.stop()
-                elif(irdist.get_distance(2)>123123):
-                    self.__m3.move(0) #m3 begins to move down if the sensor is too high from the ground.
+                    self.__m1.move(1) #m2 begins to move up if the sensor is too low to the ground.
                     self.__m2.stop()
+                elif(irdist.get_distance(2)>123123):
+                    self.__m2.move(0) #m3 begins to move down if the sensor is too high from the ground.
+                    self.__m1.stop()
             else:
                 self.__stoparm() #stops all arm movement/operation. The arm should now be in default position.
             stopflag = 1
@@ -179,8 +175,8 @@ class Arm:
         stopflag = 0
         while(stopflag == 0):
             if(irdist.get_distance(2)<123123):
-                self.__m2.move(0)#moves down
-                self.__m3.move(1)#moves up
+                self.__m1.move(0)#moves down
+                self.__m2.move(1)#moves up
             else:
                 self.stoparm()
                 stopflag = 1
@@ -192,11 +188,11 @@ class Arm:
         while (stopflag == 0):
             if (irdist.get_distance(3) < 123123):#ch3 sensor is the sensor on top of the rover.
                 if (irdist.get_distance(2) < 123123):
-                        self.__m2.move(0)  # m2 begins to move down if the sensor is too high to the ground.
-                        self.__m3.stop()
-                elif (irdist.get_distance(2) > 123123):
-                        self.__m3.move(1)  # m3 begins to move up if the sensor is too low from the ground.
+                        self.__m1.move(0)  # m2 begins to move down if the sensor is too high to the ground.
                         self.__m2.stop()
+                elif (irdist.get_distance(2) > 123123):
+                        self.__m2.move(1)  # m3 begins to move up if the sensor is too low from the ground.
+                        self.__m1.stop()
             else:
                 self.__stoparm()
                 stopflag = 1
