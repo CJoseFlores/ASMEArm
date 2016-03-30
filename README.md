@@ -55,11 +55,12 @@ Note: The methods above are Method 1, Method 2 is yet to be posted on README, bu
 ------
 * Rasberry pi 2 model B pinouts:
 ![alt tag](http://www.jameco.com/Jameco/workshop/circuitnotes/raspberry_pi_circuit_note_fig2a.jpg)
-------
+
 * H-Bridge Pinouts:
 ![alt tag](http://api.ning.com/files/2JurkTHbQdyEJc0Us*C9I5BgklPg596Okj8IKIsIa8WQR3T3KTnIIyLYDn9llE4Hao3cvc2vNy2S8ytKUmseZB*S5uMsuuwT/l293dpin.jpeg)
-------
+
 * MCP3008 Pinouts:
+
 ![alt tag](http://i.imgur.com/5t3wZug.png)
 
 	
