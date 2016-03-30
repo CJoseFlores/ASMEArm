@@ -47,10 +47,10 @@ def get_distance2(mcp3008_ch):
     if(sensorRet == 0):
         sensorRet = 1
 
-    sensorRet = 3200 / sensorRet - 3
+    sensorRet = 2177 * sensorRet/1000
     distance = sensorRet
 
-    return int(round(sensorRet))
+    return int(sensorRet)
 
 #This method involves using mcp3008 with the SPI drivers.
 #No GPIO are used, and all sensors are connected to
