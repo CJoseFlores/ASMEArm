@@ -2,7 +2,6 @@
 
 ### Main Branch
 
-<<<<<<< HEAD
 ### Objectives:
 
 1. Move the arm in sync using:
@@ -73,4 +72,3 @@ Note: This branch contains completely functional code. If you want to see the cu
 	
 2. Motor class is functional. The constructor for the Motor class is as follows:
   * SomeMotor = Motor(Initialization_Pin,MotorRight_Pin,MotorLeft_Pin)
->>>>>>> a6ff691543d5bcb86cf17a20633646c2ef1475f6
