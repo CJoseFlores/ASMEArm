@@ -35,24 +35,23 @@
 * Once next to the drop-off area, the arm will drop the payload, and return to the default position.
 
 ------
-Note: The methods above are Method 1, Method 2 is yet to be posted on README, but is currently being coded as defaultconfig2 and lunge2.
+Note: The default position and lunge depicted above and below are outdated. We are using the same concept, except we are mounting s2 under s3 (on the bottom of the claw section). These are currently being coded as defaultconfig2 and lunge2.
 	
 ### Objective Progress:
+* Motors move well individually, we are working on moving them in sync with the sensors
 
 * Sensors are currently functional, but they give off strange distance readings. Currently working off those readings and will begin testing the arm movement in conjunction to it.
-### Materials needed for this branch:
+
+
+### Materials needed:
 
   * [SHARP IR distance sensor](https://www.adafruit.com/products/164)
 
   * [MCP3008 with SPI interface](https://www.adafruit.com/products/856) 
 	This product will be used to convert the analogue readings of the sensor to digital
-
-  * [HC-SR04 Ultrasonic Sensor](http://www.amazon.com/SunFounder-Ultrasonic-Distance-Mega2560-Duemilanove/dp/B00E0NXTJW/ref=sr_1_1?ie=UTF8&qid=1459173388&sr=8-1&keywords=distance+sensor)
-	These sensors would be best, but they do not work well on round surfaces. Testing is needed.
 	
 ### Other Information/Datasheets:
 
-------
 * Rasberry pi 2 model B pinouts:
 ![alt tag](http://www.jameco.com/Jameco/workshop/circuitnotes/raspberry_pi_circuit_note_fig2a.jpg)
 
