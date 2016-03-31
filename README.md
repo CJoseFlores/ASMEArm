@@ -1,8 +1,8 @@
 # ASME CuriosityJr Arm Team
 
-### Arm Branch
+### Main Branch
 
-### This branch's objectives include:
+### Objectives:
 
 1. Move the arm in sync using:
 
