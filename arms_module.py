@@ -53,9 +53,8 @@ class Arm:
     __m2 = None
     __m3 = None
     __m4 = None
-    __snsr = None
     #Note that Arm() can only take in Motor Objects as parameters
-    def __init__(self, m1, m2, m3, m4, snsr):
+    def __init__(self, m1, m2, m3, m4):
         self.__m1 = m1
         self.__m2 = m2
         self.__m3 = m3

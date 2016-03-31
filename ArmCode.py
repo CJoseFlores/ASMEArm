@@ -25,8 +25,7 @@ m4 = Motor(26,19)
 # DOWN is close
 # UP is open
 
-sensor2 = UltraSonicSensor(23, 24)#Change this pins, they are elsewhere in the actual one.
-arm1 = Arm(m1, m2, m3, m4, sensor2)
+arm1 = Arm(m1, m2, m3, m4)
 #tmove(direction, time in seconds)
 #m1.tmove(U,1.1)
 
