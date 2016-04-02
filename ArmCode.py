@@ -6,7 +6,6 @@ import irdist
 import os
 from arms_module import Motor
 from arms_module import Arm
-from arms_module import UltraSonicSensor
 
 GPIO.setmode(GPIO.BCM)#Sets the ping Numbering System
 GPIO.setwarnings(False)
@@ -30,7 +29,7 @@ arm1 = Arm(m1, m2, m3, m4)
 #m1.tmove(U,1.1)
 
 #print("Sensor 1's Distance: ", irdist.get_distance(0))
-#print("Sensor 2's Distance: ", sensor2.measure())
+#print("Sensor 2's Distance: ", irdist.get_distance(1))
 #print("Sensor 3's Distance: ", irdist.get_distance(2))
 
 #arm1.defaultconfig2()
