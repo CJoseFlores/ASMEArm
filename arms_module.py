@@ -99,6 +99,24 @@ class Arm:
             stopflag = 1
         return
 
+    def defaultconfig3(self):
+        self.stoparm()
+        snsr1 = irdist.get_distance2(1)
+        if(snsr1 > 8):
+            while(snsr1 > 8): #The arm is below default position
+                self.__m1.move(1) #m1 moves up
+                self.__m2.stop()
+                snsr1 = irdist.get_distance2(1)
+            self.stoparm()
+        else: #The arm is above or at default position
+            while(snsr1 < 8):
+                self.__m1.move(0)#m1 moves down
+                self.__m2.stop()
+                snsr1 = irdist.get_distance2(1)
+            self.stoparm()
+
+
+
     #The code below is the original plan.
     #This function will lunge into position to grab or drop the payload
     def lunge1(self):
@@ -128,6 +146,16 @@ class Arm:
                 self.__stoparm()
                 stopflag = 1
         return
+
+    def lunge3(self):
+        self.stoparm()
+        snsr2 = irdist.get_distance2(2)
+        while(snsr2 > 3):
+            self.__m1.move(0)
+            self.__m2.stop()
+            snsr2 = irdist.get_distance2(2)
+        self.stoparm()
+
 
     #This function grabs or releases the payload. "action" means either grab or release
     def claw(self, action):
