@@ -155,6 +155,7 @@ class Arm:
             self.__m2.stop()
             snsr2 = irdist.get_distance2(2)
         self.stoparm()
+        self.__m1.tmove(0,.25)
 
 
     #This function grabs or releases the payload. "action" means either grab or release
