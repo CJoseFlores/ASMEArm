@@ -28,9 +28,9 @@ arm1 = Arm(m1, m2, m3, m4)
 #tmove(direction, time in seconds)
 #m1.tmove(U,1.1)
 
-#print("Sensor 1's Distance: ", irdist.get_distance(0))
-#print("Sensor 2's Distance: ", irdist.get_distance(1))
-#print("Sensor 3's Distance: ", irdist.get_distance(2))
+#print("Sensor 1's Distance: ", irdist.get_distance2(1))
+#print("Sensor 2's Distance: ", irdist.get_distance2(2))
+#print("Sensor 3's Distance: ", irdist.get_distance2(3))
 
 #arm1.defaultconfig2()
 #arm1.lunge2()
