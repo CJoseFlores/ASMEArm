@@ -103,11 +103,14 @@ class Arm:
         self.stoparm()
         snsr1 = irdist.get_distance2(1)
         snsr3 = irdist.get_distance2(3)
+        glitchfilter = 0
         if(snsr1 > 8):
-            while(snsr1 > 8): #The arm is below default position
+            while(glitchfilter < 3): #The arm is below default position
                 self.__m1.move(1) #m1 moves up
                 self.__m2.stop()
                 snsr1 = irdist.get_distance2(1)
+                if(snsr1 > 8):
+                    glitchfilter = glitchfilter + 1
             self.stoparm()
         else: #The arm is above or at default position
             while(snsr1 < 8):
