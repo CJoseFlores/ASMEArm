@@ -124,7 +124,7 @@ class Arm:
         else: #The arm is above or at default position
             while(snsr3 < 10):
                 self.__m3.move(1)#m1 moves down
-                snsr1 = irdist.get_distance2(3)
+                snsr3 = irdist.get_distance2(3)
             self.stoparm()
 
 
