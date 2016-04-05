@@ -164,6 +164,17 @@ class Arm:
         self.__m4.tmove(action,1.2)#Moves for 1.2 seconds
         return
 
+    def slowclaw(self, action):
+        self.stoparm()
+        self.__m4.tmove(action, .10)
+        time.sleep(.10)
+        self.__m4.tmove(action, .10)
+        time.sleep(.10)
+        self.__m4.tmove(action, .10)
+        time.sleep(.10)
+        self.__m4.tmove(action, .9)
+        return
+
     def stoparm(self):
         self.__m1.stop()
         self.__m2.stop()
