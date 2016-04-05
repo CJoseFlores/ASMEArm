@@ -167,7 +167,7 @@ class Arm:
         snsr2 = irdist.get_distance2(2)
         self.__m3.tmove(1,3)
         glitchfilter = 0
-        while(glitchfilter < 2):
+        while(glitchfilter < 20):
             self.__m1.move(0)
             self.__m2.stop()
             snsr2 = irdist.get_distance2(2)
