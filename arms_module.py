@@ -163,10 +163,13 @@ class Arm:
         self.stoparm()
         snsr2 = irdist.get_distance2(2)
         self.__m3.tmove(1,3)
-        while(snsr2 > 4):
+        glitchfilter = 0
+        while(glitchfilter > 2):
             self.__m1.move(0)
             self.__m2.stop()
             snsr2 = irdist.get_distance2(2)
+            if(snsr2 < 4):
+                glitchfilter = glitchfilter + 1
         self.stoparm()
 
     #This function grabs or releases the payload. "action" means either grab or release
