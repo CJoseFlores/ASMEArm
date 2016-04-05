@@ -162,12 +162,12 @@ class Arm:
     def lunge3(self):
         self.stoparm()
         snsr2 = irdist.get_distance2(2)
-        while(snsr2 > 3):
+        self.__m3.tmove(1,3)
+        while(snsr2 > 4):
             self.__m1.move(0)
             self.__m2.stop()
             snsr2 = irdist.get_distance2(2)
         self.stoparm()
-        self.__m1.tmove(0,.25)
 
     #This function grabs or releases the payload. "action" means either grab or release
     def claw(self, action):
