@@ -115,14 +115,14 @@ class Arm:
                 self.__m2.stop()
                 snsr1 = irdist.get_distance2(1)
             self.stoparm()
-        time.sleep(.25)
-        if(snsr3 > 9):
-            while(snsr3 > 9): #The arm is below default position
+        time.sleep(.5)
+        if(snsr3 > 11):
+            while(snsr3 > 11): #The arm is below default position
                 self.__m3.move(0) #m1 moves up
                 snsr3 = irdist.get_distance2(3)
             self.stoparm()
         else: #The arm is above or at default position
-            while(snsr3 < 9):
+            while(snsr3 < 11):
                 self.__m3.move(1)#m1 moves down
                 snsr3 = irdist.get_distance2(3)
             self.stoparm()
