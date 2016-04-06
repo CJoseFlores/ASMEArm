@@ -119,14 +119,13 @@ class Arm:
                 snsr1 = irdist.get_distance2(1)
             self.stoparm()
 
-        while(glitchFinder < 20 or glitchFinder2 < 50): #This condition moves motor3 down
+        while(glitchFinder < 20 and glitchFinder2 < 50): #This condition moves motor3 down; uses and
             snsr3 = irdist.get_distance2(3)
             if(snsr3 > 13):
                 glitchFinder = glitchFinder + 1
-                print('1')
             else:
                 glitchFinder2 = glitchFinder2 + 1
-                print('0')
+
         if(glitchFinder == 20):
             while(snsr3 > 13):
                 self.stoparm()
