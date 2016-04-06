@@ -103,25 +103,35 @@ class Arm:
         self.stoparm()
         snsr1 = irdist.get_distance2(1)
         snsr3 = irdist.get_distance2(3)
+        glitchFinder = 0
+        glitchFinder2 = 0
         if(snsr1 > 8):
             while(snsr1 > 8): #The arm is below default position
                 self.__m1.move(1) #m1 moves up
                 self.__m2.stop()
                 snsr1 = irdist.get_distance2(1)
             self.stoparm()
+
         else: #The arm is above or at default position
             while(snsr1 < 8):
                 self.__m1.move(0)#m1 moves down
                 self.__m2.stop()
                 snsr1 = irdist.get_distance2(1)
             self.stoparm()
-        time.sleep(.5)
-        if(snsr3 > 10):
-            while(snsr3 > 10): #The arm is below default position
-                self.__m3.move(0) #m1 moves up
-                snsr3 = irdist.get_distance2(3)
-            self.stoparm()
-            self.__m3.tmove(0, .5)
+
+        while(glitchFinder < 20 or glitchFinder2 < 50): #This condition moves motor3 down
+            if(snsr3 > 13):
+                glitchFinder = glitchFinder + 1
+            else:
+                glitchFinder2 = glitchFinder2 + 1
+
+        if(glitchFinder == 20):
+            while(snsr3 > 13):
+                self.stoparm()
+                self.__m3.move(0)
+
+        self.stoparm()
+
         #else: #The arm is above or at default position
          #   while(snsr3 < 10):
           #      self.__m3.move(1)#m1 moves down
@@ -175,7 +185,7 @@ class Arm:
     #This function grabs or releases the payload. "action" means either grab or release
     def claw(self, action):
         self.stoparm()
-        self.__m4.tmove(action,1.2)#Moves for 1.2 seconds
+        self.__m4.tmove(action,.75)#Moves for .75 seconds
         return
 
     def slowclaw(self, action):
