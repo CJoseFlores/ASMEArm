@@ -120,11 +120,13 @@ class Arm:
             self.stoparm()
 
         while(glitchFinder < 20 or glitchFinder2 < 50): #This condition moves motor3 down
+            snsr3 = irdist.get_distance2(3)
             if(snsr3 > 13):
                 glitchFinder = glitchFinder + 1
+                print('1')
             else:
                 glitchFinder2 = glitchFinder2 + 1
-
+                print('0')
         if(glitchFinder == 20):
             while(snsr3 > 13):
                 self.stoparm()
@@ -172,7 +174,7 @@ class Arm:
     def lunge3(self):
         self.stoparm()
         snsr2 = irdist.get_distance2(2)
-        self.__m3.tmove(1,3)
+        self.__m3.tmove(1,1)
         glitchfilter = 0
         while(glitchfilter < 20):
             self.__m1.move(0)
