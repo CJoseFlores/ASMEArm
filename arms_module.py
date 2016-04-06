@@ -130,6 +130,7 @@ class Arm:
             while(snsr3 > 13):
                 self.stoparm()
                 self.__m3.move(0)
+                snsr3 = irdist.get_distance2(3) #refresh
 
         self.stoparm()
 
